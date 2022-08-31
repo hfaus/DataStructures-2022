@@ -9,7 +9,6 @@
  * 
  */
 
-#include <vector>
 #include <iostream>
 using namespace std;
 
@@ -66,7 +65,7 @@ int main() {
 
         // calling hallwaySimulation function
         hallwaySimulation(status, numLockers, numPasses);
-        
+
     } else {
         cout << "The input you entered was invalid. Please try again." << endl;
     }
