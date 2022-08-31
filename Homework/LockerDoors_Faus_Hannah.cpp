@@ -18,7 +18,9 @@ void hallwaySimulation(bool status[], int numLockers, int numPasses) {
     for (int i = 1; i <= numPasses; ++i) {
         // simulating a single pass
         for (int j = 0; j < numLockers; ++j) {
-            status[j] = !status[j];
+            if (i % j == 0) {
+                status[j] = !status[j];
+            }
         }
     }
 
