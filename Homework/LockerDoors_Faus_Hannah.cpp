@@ -18,7 +18,7 @@ void hallwaySimulation(bool status[], int numLockers, int numPasses) {
     for (int i = 1; i <= numPasses; ++i) {
         // simulating a single pass
         for (int j = 0; j < numLockers; ++j) {
-            if (i % j == 0) {
+            if (j % i == 0) {
                 status[j] = !status[j];
             }
         }
@@ -54,14 +54,20 @@ int main() {
     cout << "Please enter the # of passes" << endl;
     cin >> numPasses;
 
-    // array for holding the locker closed/opened status - automatically set to 0, so closed is 0
-    bool status[numLockers];
+    // checks
+    if (numLockers >= 0 && numPasses >= 0) {
+        // array for holding the locker closed/opened status - automatically set to 0, so closed is 0
+        bool status[numLockers];
 
-    // populating with 0 - they all start closed
-    for (int i = 0; i < numLockers; ++i) {
-        status[i] = 0;
+        // populating with 0 - they all start closed
+        for (int i = 0; i < numLockers; ++i) {
+            status[i] = 0;
+        }
+
+        // calling hallwaySimulation function
+        hallwaySimulation(status, numLockers, numPasses);
+        
+    } else {
+        cout << "The input you entered was invalid. Please try again." << endl;
     }
-
-    // calling hallwaySimulation function
-    hallwaySimulation(status, numLockers, numPasses);
 }
