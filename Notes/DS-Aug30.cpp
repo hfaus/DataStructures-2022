@@ -117,3 +117,28 @@ ASYMPTOTIC NOTATIONS & BASIC EFFICIENCY CLASSES
            [n^3 E omega(n^2)]
            Hence, proved by definition
 
+-Big-Theta or Theta-notation :-
+    * A function t(n) is said to be in theta(g(n)), if t(n) is bounded BOTH above and below by some positive constant multiples of g(n) for all large 'n' i.e.;
+        there exists some positive constants 'c1' and 'c2' and some non-negative integer 'n0' such that 
+        c2g(n) <= t(n) <= c1g(n)    for all n>=n0
+        -> t(n) E theta(g(n))
+    * Ex(1)
+        t(n) = 1/2n(n-1)
+        g(n) = n^2
+
+        // got bio-oh
+        1/2n(n-1) = 1/2n^2 - 1/2n <= 1/2n^2             , n >= 0
+        // bc 1/2n^2 is larger than 1/2n
+                            t(n) <= c1g(n)
+                            -> 1/2n(n-1) E O(n^2)   , where c1 = 1/2, n0 = 0
+
+        // got big-omega
+        1/2n(n-1) = 1/2n^2 - 1/2n >= 1/2n^2 - 1/2n * 1/2n   , n >=2
+                    1/2n^2 - 1/2n >= 1/4n^2
+                             t(n) >= c2g(n)
+                             -> 1/2n(n-1) E omega(n^2)      , where c2 = 1/4, n0 = 2
+        
+        // got big-theta
+        t(n) E theta(g(n))      , where c1 = 1/2, c2 = 1/4, n >= 2
+        Hence, proved by definition
+
