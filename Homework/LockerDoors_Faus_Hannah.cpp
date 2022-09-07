@@ -16,9 +16,9 @@ void hallwaySimulation(bool status[], int numLockers, int numPasses) {
     // simulating all the passes
     for (int i = 1; i <= numPasses; ++i) {
         // simulating a single pass
-        for (int j = 0; j < numLockers; ++j) {
+        for (int j = 1; j <= numLockers; ++j) {
             if (j % i == 0) {
-                status[j] = !status[j];
+                status[j-1] = !status[j-1];
             }
         }
     }
@@ -49,24 +49,32 @@ int main() {
     // user enters info for numLockers and numPasses
     cout << "Please enter the # of locker doors" << endl;
     cin >> numLockers;
-
-    cout << "Please enter the # of passes" << endl;
-    cin >> numPasses;
-
-    // checks
-    if (numLockers >= 0 && numPasses >= 0) {
-        // array for holding the locker closed/opened status - automatically set to 0, so closed is 0
-        bool status[numLockers];
-
-        // populating with 0 - they all start closed
-        for (int i = 0; i < numLockers; ++i) {
-            status[i] = 0;
-        }
-
-        // calling hallwaySimulation function
-        hallwaySimulation(status, numLockers, numPasses);
-
-    } else {
+    // checking for valid input
+    if (cin.fail()) {
         cout << "The input you entered was invalid. Please try again." << endl;
+    } else {
+        cout << "Please enter the # of passes" << endl;
+        cin >> numPasses;
+        // checking for valid input
+        if (cin.fail()) {
+            cout << "The input you entered was invalid. Please try again." << endl;
+        } else {
+            // checks
+            if (numLockers >= 0 && numPasses >= 0) {
+                // array for holding the locker closed/opened status - automatically set to 0, so closed is 0
+                bool status[numLockers];
+
+                // populating with 0 - they all start closed
+                for (int i = 0; i < numLockers; ++i) {
+                    status[i] = 0;
+                }
+
+                // calling hallwaySimulation function
+                hallwaySimulation(status, numLockers, numPasses);
+
+            } else {
+                cout << "The input you entered was invalid. Please try again." << endl;
+            }
+        }
     }
 }
