@@ -46,7 +46,7 @@ Method of backward sub:
         = 2^(n-1) + 2^(n-1) - 1
         = 2^n - 1
     T(n) = 2^n - 1 E theta(2^n)
-
+--------------------------------------------------------------------------
 ex3
     T(n) = T(n-1) + n
     T(0) = 0
@@ -71,7 +71,7 @@ Method of backward sub:
         = 1 + 2 + ... + n 
             -> sum of all natural numbers 
     T(n) = n(n+1) / 2
-
+--------------------------------------------------------------------------
 ex4
     T(n) = T(n/2) + 2n
     T(1) = 2
@@ -102,7 +102,7 @@ Method of backward sub:
            = 2 * 2^k * 2 - 2
            = 4(2^k) - 2
     T(n) = 4n - 2 E theta(n)
-
+--------------------------------------------------------------------------
 Linear second-order recurrence relations with constant coefficents
     aT(n) + bT(n-1) + cT(n-2) = f(n)
         a,b,c -> real numbers
@@ -131,7 +131,7 @@ Linear second-order recurrence relations with constant coefficents
         T(n) = gamma^n [alpha cosn(theta) + beta sinn(theta)]
             -> where gamma = sqrt(u^2 + v^2)
             -> where theta = arctan(v/u)
-
+--------------------------------------------------------------------------
 ex1 
     f(n) - f(n-1) - f(n-2) = 0
     f(0) = 0
@@ -165,8 +165,57 @@ ex1
 
     [Particular solution]
         f(n) = 1/(sqrt(5)) ([1 + sqrt(5)] / 2)^n - 1/(sqrt(5)) ([1 - sqrt(5)] / 2)^n
+--------------------------------------------------------------------------
+ex2
+    T(n) - 6T(n-1) + 9T(n-2) = 0
+    T(0) = 0
+    T(1) = 3
 
+    [Homogenous case - so find the characteristic equation]
+    r^2 - 6r + 9 = 0
 
+    [Find the roots]
+    a = 1
+    b = -6
+    c = 9
+    r = [-(-6) +- sqrt((-6)^2 - 4(1)(9))] / 2(1)
+      = [-(-6) +- sqrt(36-36)] / 2
+      = 6/2
+    rbase1 = rbase2 = r = 3
+    Roots are real and equal -> T(n) = alphar^n + betanr^n 
+
+    [General solution]
+    T(n) = alpa(3^n) + betan(3^n)
+    T(0) = alpha(3^0)
+    alpha = 0
+    T(1) = alpha(3^1) + beta(1)(3^1)
+    beta = ....
+
+    [Particular soluiton]
+    T(n) = n3^n
+--------------------------------------------------------------------------
+ex3
+    T(n) - 6T(n-1) + 9T(n-2) = 4
+    T(0) = 0
+    T(1) = 3
+
+    [Inhomogeneous case]
+    * substitute 'c' in all occurrences of T(n), T(n-1)...
+        c - 6c + 9c = 4
+        c = 1
+
+    [General solution for the inhomogeneous case]
+    T(n) = alpha(3^n) + betan(3^n) + 1
+    T(0) = 0
+    0 = alpha(3^0) + 1
+    alpha = 0
+    T(1) = 3
+    3 = 3alpha + 3beta + 1
+    3 = -3 + 3beta + 1
+    beta = 5/3
+
+    [Particular solution]
+    T(n) = (-1)(3^n) + 5/3 n(3^n) + 1
 
 
 
