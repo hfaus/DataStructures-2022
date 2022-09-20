@@ -28,4 +28,5 @@ ALGORITHM SelectionSort
     n(n-1) / 2 E theta(n^2)
     SelectionSort is a theta(n^2) algortihm on all inputs
     [Side note: the efficiency class will include the FASTEST function AND theta is the most common bc occurs when the function is in our formula]
+    Number of key swaps = theta(n)
 --------------------------------------------------------------------------
